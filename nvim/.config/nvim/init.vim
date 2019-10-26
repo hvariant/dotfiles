@@ -3,6 +3,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 " <leader>c to comment/uncomment
 Plug 'scrooloose/nerdcommenter'
 
+" syntax highlighting for nix
+Plug 'LnL7/vim-nix'
+
 call plug#end()
 
 set nobackup
