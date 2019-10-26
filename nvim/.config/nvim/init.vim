@@ -32,6 +32,9 @@ filetype plugin indent on
 
 colo pablo
 
+" https://superuser.com/a/617690
+let mapleader = ','
+
 " disable uppercase/lowercase conversion with U/u
 vmap u <nop>
 vmap U <Nop>
@@ -56,3 +59,6 @@ tnoremap <Esc> <C-\><C-n>
 
 " https://stackoverflow.com/q/1675688
 set list
+
+" https://www.reddit.com/r/vim/comments/b10bax/a_good_way_to_jump_between_buffers/?utm_source=share&utm_medium=web2x
+nnoremap <leader>b :ls<cr>:b<space>
