@@ -163,7 +163,7 @@ set $red #cc0403
 client.focused              $base01        $red       $base07   $base0F
 client.focused_inactive     $base02        $base02    $base03   $base0F
 client.unfocused            $base02        $base02    $base03   $base0F
-client.urgent 			    $base02        $base08    $base00   $base0F
+client.urgent 			        $base02        $base08    $base00   $base0F
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -224,12 +224,3 @@ bindsym Print exec --no-startup-id xfce4-screenshooter
 # cycling though workspaces
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-
-# sticky (since v4.11)
-bindsym $mod+Shift+f sticky toggle
-
-# The middle button and a modifer over any part of the window kills the window
-bindsym --whole-window $mod+button2 kill
-
-# network manager
-exec_always --no-startup-id nm-applet
