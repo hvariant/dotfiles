@@ -54,3 +54,5 @@ tnoremap <Esc> <C-\><C-n>
 :command Wq wq
 :command WQ wq
 
+" https://stackoverflow.com/q/1675688
+set list
