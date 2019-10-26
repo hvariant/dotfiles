@@ -163,7 +163,7 @@ set $red #cc0403
 client.focused              $base01        $red       $base07   $base0F
 client.focused_inactive     $base02        $base02    $base03   $base0F
 client.unfocused            $base02        $base02    $base03   $base0F
-client.urgent 			        $base02        $base08    $base00   $base0F
+client.urgent               $base02        $base08    $base00   $base0F
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -204,7 +204,7 @@ bar {
       background $base01
       statusline $base05
 
-      #					 border  background text
+      #                  border  background text
       focused_workspace  $base01 $base01    $base07
       active_workspace   $base01 $base02    $base03
       inactive_workspace $base01 $base01    $base03
