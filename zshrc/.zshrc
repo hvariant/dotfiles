@@ -7,3 +7,5 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 zstyle ':completion:*' rehash true
 
 export PATH=~/.cargo/bin/:$PATH
+
+alias rm='echo "This is not the command you are looking for."; false'
