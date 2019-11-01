@@ -3,6 +3,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " <leader>c to comment/uncomment
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'neovimhaskell/haskell-vim'
+
 " syntax highlighting for nix
 Plug 'LnL7/vim-nix'
 
