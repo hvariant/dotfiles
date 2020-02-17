@@ -67,3 +67,7 @@ set list
 
 " https://www.reddit.com/r/vim/comments/b10bax/a_good_way_to_jump_between_buffers/?utm_source=share&utm_medium=web2x
 nnoremap <leader>b :ls<cr>:b<space>
+
+" https://vi.stackexchange.com/a/2285
+" Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
