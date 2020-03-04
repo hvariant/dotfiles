@@ -9,3 +9,5 @@ zstyle ':completion:*' rehash true
 export PATH=~/.cargo/bin/:~/.local/bin:$PATH
 
 alias rm='echo "This is not the command you are looking for."; false'
+
+export PATH=~/.npm-packages/bin:$PATH
