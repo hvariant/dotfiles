@@ -8,6 +8,8 @@ Plug 'neovimhaskell/haskell-vim'
 " syntax highlighting for nix
 Plug 'LnL7/vim-nix'
 
+Plug 'leafgarland/typescript-vim'
+
 call plug#end()
 
 set nobackup
