@@ -64,17 +64,18 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# https://news.ycombinator.com/item?id=22349767
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+j focus left; exec --no-startup-id ~/.config/i3/scripts/centre-mouse.sh
+bindsym $mod+k focus down; exec --no-startup-id ~/.config/i3/scripts/centre-mouse.sh
+bindsym $mod+l focus up; exec --no-startup-id ~/.config/i3/scripts/centre-mouse.sh
+bindsym $mod+semicolon focus right; exec --no-startup-id ~/.config/i3/scripts/centre-mouse.sh
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left focus left; exec --no-startup-id ~/.config/i3/scripts/centre-mouse.sh
+bindsym $mod+Down focus down; exec --no-startup-id ~/.config/i3/scripts/centre-mouse.sh
+bindsym $mod+Up focus up; exec --no-startup-id ~/.config/i3/scripts/centre-mouse.sh
+bindsym $mod+Right focus right; exec --no-startup-id ~/.config/i3/scripts/centre-mouse.sh
 
 # move focused window
 bindsym $mod+Shift+j move left
@@ -224,3 +225,6 @@ bindsym Print exec --no-startup-id xfce4-screenshooter
 # cycling though workspaces
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
+# https://i3wm.org/docs/userguide.html#_focus_follows_mouse
+focus_follows_mouse yes
