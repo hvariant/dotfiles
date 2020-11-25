@@ -6,6 +6,8 @@ stow vim -t ~
 stow zshrc -t ~
 stow tmux -t ~
 stow xprofile -t ~
+mkdir -p ~/.emacs.d/
+stow emacs -t ~/.emacs.d/
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
