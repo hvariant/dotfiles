@@ -227,7 +227,7 @@
     (shell-command (concat "open -a terminal " (shell-quote-argument (expand-file-name default-directory )))))
    ((string-equal system-type "gnu/linux")
     (let ((process-connection-type nil))
-      (start-process "" nil "x-terminal-emulator"
+      (start-process "" nil "lxterminal"
                      (concat "--working-directory=" default-directory))))))
 
 (global-set-key (kbd "C-c t") 'open-in-terminal)
