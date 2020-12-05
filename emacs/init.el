@@ -1,9 +1,9 @@
 (require 'package)
-(package-initialize)
- 
+(setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(package-initialize)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -11,6 +11,9 @@
 
 (eval-when-compile
   (require 'use-package))
+
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 ;; https://github.com/emacs-evil/evil-collection
 (use-package evil
@@ -65,6 +68,7 @@
     (require 'smartparens-config)
     (smartparens-global-mode 1)
     (show-paren-mode t)))
+
 (use-package which-key
   :ensure t
   :config
@@ -169,6 +173,13 @@
   :config
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode))
+
+(use-package json-mode)
+
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
+(use-package magit)
 
 ;; https://stackoverflow.com/a/23715631
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
