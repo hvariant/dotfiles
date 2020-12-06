@@ -53,7 +53,9 @@
   (counsel-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
-  (global-set-key (kbd "C-c k") 'counsel-rg))
+  (global-set-key (kbd "C-c k") 'counsel-rg)
+  ;; https://www.reddit.com/r/emacs/comments/e02lup/ivy_swiper_doesnt_let_me_rename_or_save_a_file/
+  (setq ivy-use-selectable-prompt t))
 
 (use-package rg
   :ensure t)
@@ -189,6 +191,15 @@
 
 (use-package undo-tree)
 
+(use-package org-journal
+  :defer t
+  :init
+  (setq org-journal-prefix-key "C-c j")
+  :config
+  (setq org-journal-file-format "%Y%m%d.org")
+  (setq org-journal-file-type 'weekly)
+  (setq org-journal-date-format "%A, %d %B %Y"))
+
 ;; https://stackoverflow.com/a/23715631
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
@@ -252,7 +263,9 @@
 (global-set-key (kbd "C-c t") 'open-in-terminal)
 
 ;; https://stackoverflow.com/a/296316
-(set-face-attribute 'default nil :height 140)
+;; https://stackoverflow.com/a/3074192
+(if (eq system-type 'gnu/linux)
+    (set-face-attribute 'default nil :height 140))
 
 ;; https://emacs.stackexchange.com/a/245
 (global-auto-revert-mode 1)
@@ -271,3 +284,5 @@
 ;; https://github.com/syl20bnr/spacemacs/issues/14036#issuecomment-707072523
 (global-undo-tree-mode)
 (evil-set-undo-system 'undo-tree)
+
+(load "~/.emacs.d/os-specific.el")
