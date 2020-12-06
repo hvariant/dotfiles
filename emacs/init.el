@@ -181,10 +181,13 @@
 
 (use-package json-mode)
 
+(use-package yaml-mode
+  :mode "\\.yml\\'")
+
 (use-package nix-mode
   :mode "\\.nix\\'")
 
-(use-package magit)
+(use-package undo-tree)
 
 ;; https://stackoverflow.com/a/23715631
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
@@ -247,3 +250,24 @@
                      (concat "--working-directory=" default-directory))))))
 
 (global-set-key (kbd "C-c t") 'open-in-terminal)
+
+;; https://stackoverflow.com/a/296316
+(set-face-attribute 'default nil :height 140)
+
+;; https://emacs.stackexchange.com/a/245
+(global-auto-revert-mode 1)
+
+;; https://emacs.stackexchange.com/a/172
+(global-set-key (kbd "C-c r") (lambda ()
+                                (interactive)
+                                (revert-buffer t t t)
+                                (message "buffer is reverted")))
+
+(global-set-key (kbd "C-c C-r") (lambda ()
+                                  (interactive)
+                                  (eval-buffer)
+                                  (message "current buffer evaluated")))
+
+;; https://github.com/syl20bnr/spacemacs/issues/14036#issuecomment-707072523
+(global-undo-tree-mode)
+(evil-set-undo-system 'undo-tree)
