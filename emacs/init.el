@@ -293,3 +293,6 @@
 (evil-set-undo-system 'undo-tree)
 
 (load "~/.emacs.d/os-specific.el")
+
+;; https://www.emacswiki.org/emacs/YesOrNoP
+(defalias 'yes-or-no-p 'y-or-n-p)
