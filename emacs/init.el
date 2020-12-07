@@ -97,7 +97,7 @@
           (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
           (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
           (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
-  (setq neo-window-width 40)
+  (setq neo-window-width 60)
   (setq neo-smart-open t))
 
 ;; webdev snippet from reddit
@@ -170,16 +170,25 @@
   :ensure t
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)))
+         (typescript-mode . tide-hl-identifier-mode)
+         (js2-mode . tide-setup)
+         (js2-mode . tide-hl-identifier-mode)))
 
 (use-package css-mode
   :config
   (setq css-indent-offset 2))
 
+(use-package add-node-modules-path)
+
+;; https://github.com/prettier/prettier-emacs#using-node_modulesbinprettier
 (use-package prettier-js
   :config
   (add-hook 'js2-mode-hook 'prettier-js-mode)
-  (add-hook 'web-mode-hook 'prettier-js-mode))
+  (add-hook 'web-mode-hook 'prettier-js-mode)
+  (eval-after-load 'web-mode
+    '(progn
+       (add-hook 'web-mode-hook #'add-node-modules-path)
+       (add-hook 'web-mode-hook #'prettier-js-mode))))
 
 (use-package json-mode)
 
@@ -206,6 +215,25 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
+(use-package simpleclip
+  :config
+  (simpleclip-mode 1))
+
+(use-package eyebrowse
+  :diminish eyebrowse-mode
+  :config (progn
+            (define-key eyebrowse-mode-map (kbd "M-1") 'eyebrowse-switch-to-window-config-1)
+            (define-key eyebrowse-mode-map (kbd "M-2") 'eyebrowse-switch-to-window-config-2)
+            (define-key eyebrowse-mode-map (kbd "M-3") 'eyebrowse-switch-to-window-config-3)
+            (define-key eyebrowse-mode-map (kbd "M-4") 'eyebrowse-switch-to-window-config-4)
+            (define-key eyebrowse-mode-map (kbd "M-5") 'eyebrowse-switch-to-window-config-5)
+            (eyebrowse-mode t)
+            (setq eyebrowse-new-workspace t)))
+
+(use-package gruvbox-theme)
+
+(load-theme 'gruvbox-dark-soft t)
 
 ;; https://stackoverflow.com/a/23715631
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
@@ -250,8 +278,6 @@
 
 ;; no tabs !!!
 (setq-default indent-tabs-mode nil)
-
-(load-theme 'leuven)
 
 ;; http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html
 (defun open-in-terminal ()
