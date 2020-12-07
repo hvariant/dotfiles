@@ -82,24 +82,9 @@
   :config
   (which-key-mode +1))
 
-(use-package neotree
-  :ensure t
-  :config
-  (global-set-key [f8] 'neotree-toggle)
-  ;; https://www.emacswiki.org/emacs/NeoTree
-  (add-hook 'neotree-mode-hook
-          (lambda ()
-          (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-          (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
-          (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-          (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
-          (define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
-          (define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
-          (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
-          (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
-          (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
-  (setq neo-window-width 60)
-  (setq neo-smart-open t))
+(use-package dired-sidebar
+  :bind ([f8] . dired-sidebar-toggle-sidebar)
+  :commands (dired-sidebar-toggle-sidebar))
 
 ;; webdev snippet from reddit
 (use-package flycheck
