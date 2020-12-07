@@ -65,7 +65,8 @@
   :config
   (projectile-mode +1)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (setq projectile-switch-project-action #'projectile-dired))
 
 ;; https://www.sandeepnambiar.com/my-minimal-emacs-setup/
 (use-package smartparens
