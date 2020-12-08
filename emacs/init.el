@@ -84,7 +84,8 @@
 
 (use-package dired-sidebar
   :bind ([f8] . dired-sidebar-toggle-sidebar)
-  :commands (dired-sidebar-toggle-sidebar))
+  :commands (dired-sidebar-toggle-sidebar)
+  :config (setq dired-sidebar-width 60))
 
 ;; webdev snippet from reddit
 (use-package flycheck
