@@ -310,3 +310,8 @@
 
 ;; https://www.emacswiki.org/emacs/YesOrNoP
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; https://stackoverflow.com/a/3669681
+(setq frame-title-format
+      (list (format "%s %%S: %%j " (system-name))
+        '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
