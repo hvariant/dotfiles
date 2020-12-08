@@ -126,6 +126,8 @@
   :ensure t
   :mode (("\\.html?\\'" . web-mode)
          ("\\.tsx\\'" . web-mode)
+         ("\\.ts\\'" . web-mode)
+         ("\\.js\\'" . web-mode)
          ("\\.jsx\\'" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2
@@ -170,7 +172,6 @@
 ;; https://github.com/prettier/prettier-emacs#using-node_modulesbinprettier
 (use-package prettier-js
   :config
-  (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode)
   (eval-after-load 'web-mode
     '(progn
