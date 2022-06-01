@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-udiskie -a &
-ibus-daemon &

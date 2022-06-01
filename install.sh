@@ -5,7 +5,7 @@ stow nvim -t ~
 stow vim -t ~
 stow zshrc -t ~
 stow tmux -t ~
-stow xprofile -t ~
+stow mako -t ~
 mkdir -p ~/.emacs.d/
 stow emacs -t ~/.emacs.d/
 
