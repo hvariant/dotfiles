@@ -1,0 +1,8 @@
+sethandler n:vim i:ide
+sethandler <C-S> a:ide
+sethandler <C-V> a:ide
+sethandler <C-K> a:ide
+sethandler <C-C> a:ide
+sethandler <C-L> a:ide
+vmap u <nop>
+vmap U <Nop>

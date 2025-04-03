@@ -6,6 +6,7 @@ stow vim -t ~
 stow zshrc -t ~
 stow tmux -t ~
 stow mako -t ~
+stow ideavimrc -t ~
 mkdir -p ~/.emacs.d/
 stow emacs -t ~/.emacs.d/
 
